@@ -126,10 +126,9 @@ with col_left:
             min_value=1,
             value=1,
             step=1
+            key="quantity_tea"
         )
 
-    with col_qty:
-        quantity = st.number_input("Số lượng:", min_value=1, value=1, step=1)
 
     # 3. Size, Đường, Đá
     c_size, c_sugar, c_ice = st.columns(3)
