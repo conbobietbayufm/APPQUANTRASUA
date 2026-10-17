@@ -91,15 +91,17 @@ with col_left:
     
     st.markdown("#### Chọn món nước & Tùy chọn")
     
+   
     # 2. Chọn trà sữa & số lượng
     col_item, col_qty = st.columns([3, 1])
-    
-with col_item:
-    selected_tea = st.selectbox(
-        "Loại trà sữa:",
-        list(MENU_TEA.keys())
-    )
-# Danh sách hình ảnh của từng loại trà sữa
+
+    with col_item:
+        selected_tea = st.selectbox(
+            "Loại trà sữa:",
+            list(MENU_TEA.keys())
+        )
+
+        # Danh sách hình ảnh từng loại trà sữa
         TEA_IMAGES = {
             "Trà Sữa Truyền Thống": "images/tra_sua_truyen_thong.jpg",
             "Trà Sữa Trân Châu Đường Đen": "images/tran_chau_duong_den.jpg",
@@ -111,11 +113,9 @@ with col_item:
             "Trà Dâu Tằm": "images/tra_dau_tam.jpg",
         }
 
-        # Hiển thị hình ảnh theo loại trà sữa được chọn
-        image_path = TEA_IMAGES[selected_tea]
-
+        # Hiển thị ảnh tương ứng với món đã chọn
         st.image(
-            image_path,
+            TEA_IMAGES[selected_tea],
             caption=selected_tea,
             use_container_width=True
         )
