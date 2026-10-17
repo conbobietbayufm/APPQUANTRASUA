@@ -11,7 +11,7 @@ import html
 # Lưu ý: đặt set_page_config trước mọi lệnh st hiển thị nội dung
 # =========================================================
 st.set_page_config(
-    page_title="Boba Tea | Quản lý bán hàng",
+    page_title=" TRÀ SỮA KHÔNG TRÀ KHÔNG SỮA | Quản lý bán hàng",
     page_icon="🧋",
     layout="wide",
     initial_sidebar_state="expanded",
