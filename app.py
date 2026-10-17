@@ -103,14 +103,14 @@ with col_left:
 
         # Danh sách hình ảnh từng loại trà sữa
         TEA_IMAGES = {
-            "Trà Sữa Truyền Thống": "images/tra_sua_truyen_thong.jpg",
-            "Trà Sữa Trân Châu Đường Đen": "images/tran_chau_duong_den.jpg",
-            "Trà Sữa Thái Xanh": "images/tra_sua_thai_xanh.jpg",
-            "Trà Sữa Ô Long": "images/tra_sua_o_long.jpg",
-            "Trà Sữa Matcha": "images/tra_sua_matcha.jpg",
-            "Trà Sữa Dâu Tây": "images/tra_sua_dau_tay.jpg",
-            "Trà Đào Cam Sả": "images/tra_dao_cam_sa.jpg",
-            "Trà Dâu Tằm": "images/tra_dau_tam.jpg",
+            "Trà Sữa Truyền Thống": "tra_sua_truyen_thong.jpg",
+            "Trà Sữa Trân Châu Đường Đen": "tran_chau_duong_den.jpg",
+            "Trà Sữa Thái Xanh": "tra_sua_thai_xanh.jpg",
+            "Trà Sữa Ô Long": "tra_sua_o_long.jpg",
+            "Trà Sữa Matcha": "tra_sua_matcha.jpg",
+            "Trà Sữa Dâu Tây": "tra_sua_dau_tay.jpg",
+            "Trà Đào Cam Sả": "tra_dao_cam_sa.jpg",
+            "Trà Dâu Tằm": "tra_dau_tam.jpg",
         }
 
         # Hiển thị ảnh tương ứng với món đã chọn
