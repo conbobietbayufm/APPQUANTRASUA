@@ -77,7 +77,7 @@ def create_txt_invoice(customer_name, cart, total_amount, discount, final_amount
 # ---------------------------------------------------------
 # GIAO DIỆN CHÍNH
 # ---------------------------------------------------------
-st.title("QUÁN TRÀ SỮA MR BÌNH")
+st.title("TRÀ SỮA KHÔNG TRÀ KHÔNG SỮA")
 st.markdown("---")
 
 col_left, col_right = st.columns([1.1, 0.9])
