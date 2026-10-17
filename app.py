@@ -99,28 +99,35 @@ with col_item:
         "Loại trà sữa:",
         list(MENU_TEA.keys())
     )
+# Danh sách hình ảnh của từng loại trà sữa
+        TEA_IMAGES = {
+            "Trà Sữa Truyền Thống": "images/tra_sua_truyen_thong.jpg",
+            "Trà Sữa Trân Châu Đường Đen": "images/tran_chau_duong_den.jpg",
+            "Trà Sữa Thái Xanh": "images/tra_sua_thai_xanh.jpg",
+            "Trà Sữa Ô Long": "images/tra_sua_o_long.jpg",
+            "Trà Sữa Matcha": "images/tra_sua_matcha.jpg",
+            "Trà Sữa Dâu Tây": "images/tra_sua_dau_tay.jpg",
+            "Trà Đào Cam Sả": "images/tra_dao_cam_sa.jpg",
+            "Trà Dâu Tằm": "images/tra_dau_tam.jpg",
+        }
 
-    # Hình ảnh tương ứng với từng loại trà sữa
-    TEA_IMAGES = {
-        "Trà Sữa Truyền Thống": "images/tra_sua_truyen_thong.jpg",
-        "Trà Sữa Trân Châu Đường Đen": "images/tran_chau_duong_den.jpg",
-        "Trà Sữa Thái Xanh": "images/tra_sua_thai_xanh.jpg",
-        "Trà Sữa Ô Long": "images/tra_sua_o_long.jpg",
-        "Trà Sữa Matcha": "images/tra_sua_matcha.jpg",
-        "Trà Sữa Dâu Tây": "images/tra_sua_dau_tay.jpg",
-        "Trà Đào Cam Sả": "images/tra_dao_cam_sa.jpg",
-        "Trà Dâu Tằm": "images/tra_dau_tam.jpg",
-    }
+        # Hiển thị hình ảnh theo loại trà sữa được chọn
+        image_path = TEA_IMAGES[selected_tea]
 
-    # Hiển thị ảnh theo món đang được chọn
-    image_path = TEA_IMAGES[selected_tea]
-
-    try:
         st.image(
             image_path,
-            caption=f"🧋 {selected_tea}",
+            caption=selected_tea,
             use_container_width=True
         )
+
+    with col_qty:
+        quantity = st.number_input(
+            "Số lượng:",
+            min_value=1,
+            value=1,
+            step=1
+        )
+
     with col_qty:
         quantity = st.number_input("Số lượng:", min_value=1, value=1, step=1)
 
