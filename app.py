@@ -104,7 +104,7 @@ with col_left:
         # Danh sách hình ảnh từng loại trà sữa
         TEA_IMAGES = {
             "Trà Sữa Truyền Thống": "tra_sua_truyen_thong.jpg",
-            "Trà Sữa Trân Châu Đường Đen": "tran_chau_duong_den.jpg",
+            "Trà Sữa Trân Châu Đường Đen": "tra_sua_tran_chau_duong_den.jpg",
             "Trà Sữa Thái Xanh": "tra_sua_thai_xanh.jpg",
             "Trà Sữa Ô Long": "tra_sua_o_long.jpg",
             "Trà Sữa Matcha": "tra_sua_matcha.jpg",
