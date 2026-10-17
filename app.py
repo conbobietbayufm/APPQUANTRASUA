@@ -121,12 +121,6 @@ with col_item:
             caption=f"🧋 {selected_tea}",
             use_container_width=True
         )
-    except Exception:
-        st.info(
-            f"🧋 Bạn đã chọn: {selected_tea}. "
-            "Vui lòng kiểm tra file hình ảnh."
-        )
-
     with col_qty:
         quantity = st.number_input("Số lượng:", min_value=1, value=1, step=1)
 
