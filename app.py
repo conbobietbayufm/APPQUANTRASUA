@@ -125,7 +125,7 @@ with col_left:
             "Số lượng:",
             min_value=1,
             value=1,
-            step=1
+            step=1,
             key="quantity_tea"
         )
 
