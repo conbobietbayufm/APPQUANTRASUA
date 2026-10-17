@@ -5,7 +5,41 @@ from datetime import datetime
 from io import BytesIO
 from pathlib import Path
 import html
+def create_txt_invoice(customer_name, cart, total_amount, discount, final_amount):
+    now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
+    content = "=" * 40 + "\n"
+    content += f"{'HÓA ĐƠN BÁN HÀNG - BOBA TEA':^40}\n"
+    content += "=" * 40 + "\n"
+    content += f"Ngày: {now}\n"
+    content += f"Khách hàng: {customer_name or 'Khách vãng lai'}\n"
+    content += "-" * 40 + "\n"
+
+    for idx, item in enumerate(cart, 1):
+        content += f"{idx}. {item['name']} (Size {item['size']})\n"
+        content += f"   - Đường: {item['sugar']} | Đá: {item['ice']}\n"
+
+        if item["toppings"]:
+            content += f"   - Topping: {', '.join(item['toppings'])}\n"
+
+        unit_price = calculate_unit_price(item)
+        item_total = unit_price * item["quantity"]
+
+        content += (
+            f"   SL: {item['quantity']} x {unit_price:,} "
+            f"= {item_total:,} VNĐ\n"
+        )
+
+    discount_amount = int(total_amount * discount / 100)
+
+    content += "-" * 40 + "\n"
+    content += f"Tổng tiền món: {total_amount:,} VNĐ\n"
+    content += f"Giảm giá: {discount}% ({discount_amount:,} VNĐ)\n"
+    content += f"TỔNG THANH TOÁN: {final_amount:,} VNĐ\n"
+    content += "=" * 40 + "\n"
+    content += f"{'Cảm ơn quý khách và hẹn gặp lại!':^40}\n"
+
+    return content
 # =========================================================
 # CẤU HÌNH TRANG
 # Lưu ý: đặt set_page_config trước mọi lệnh st hiển thị nội dung
@@ -540,15 +574,21 @@ else:
         z.metric("Tiền thừa", money(order["change_due"]))
         pdf_bytes = make_pdf(order)
         if pdf_bytes:
-            st.download_button(
-                "📄 Tải lại hóa đơn PDF",
-                data=pdf_bytes,
-                file_name=f"HoaDon_BobaTea_{order['id']}.pdf",
-                mime="application/pdf",
-                use_container_width=True
-            )
-        else:
-            st.error("Chưa cài thư viện reportlab. Hãy chạy: pip install reportlab")
+           txt_data = create_txt_invoice(
+    order["customer_name"],
+    order["items"],
+    order["subtotal"],
+    order["discount_percent"],
+    order["total"]
+)
+
+st.download_button(
+    label="📥 Tải hóa đơn (.TXT)",
+    data=txt_data,
+    file_name=f"HoaDon_BobaTea_{order['id']}.txt",
+    mime="text/plain",
+    use_container_width=True
+)
 
 st.markdown("---")
 st.markdown("<p style='text-align:center;color:#8b6f66'>🧋 Boba Tea · Chúc bạn kinh doanh thuận lợi!</p>", unsafe_allow_html=True)
